@@ -31,7 +31,6 @@ const resultat = document.getElementById('resultat');
 const eyes = document.getElementById("eye");
 const logoutBtn = document.getElementById("logout-btn");
 
-// Login
 loginBtn.addEventListener('click', function() {
   const pseudo = pseudoInput.value.trim();
   if (pseudo) {
@@ -44,7 +43,6 @@ loginBtn.addEventListener('click', function() {
   }
 });
 
-// Vérifier pseudo sauvegardé
 window.addEventListener('load', function() {
   const savedPseudo = localStorage.getItem('pseudo');
   if (savedPseudo) {
@@ -54,7 +52,6 @@ window.addEventListener('load', function() {
   }
 });
 
-// Fonction typeWriter
 function typeWriter(text, element, delay = 50) {
   element.textContent = "";
   const chars = text.split("");
@@ -66,7 +63,6 @@ function typeWriter(text, element, delay = 50) {
   }, delay);
 }
 
-// Bouton révéler la phrase
 let typingInterval;
 let hideTimeout;
 
@@ -94,19 +90,16 @@ bouton.addEventListener('click', function() {
 });
 
 
-// Effet halo lumineux avec la souris
 document.addEventListener("mousemove", (e) => {
   document.body.style.setProperty("--x", e.clientX + "px");
   document.body.style.setProperty("--y", e.clientY + "px");
 });
 
-// Effet éclair aléatoire
 setInterval(() => {
   document.body.classList.add("lightning");
   setTimeout(() => document.body.classList.remove("lightning"), 1000);
 }, Math.random() * 8000 + 5000);
 
-// Apparition aléatoire des yeux
 function showEyes() {
   const x = Math.random() * (window.innerWidth - 100);
   const y = Math.random() * (window.innerHeight - 100);
@@ -122,7 +115,6 @@ setInterval(() => {
   if (Math.random() > 0.5) showEyes();
 }, Math.random() * 15000 + 10000);
 
-// Logout
 logoutBtn.addEventListener("click", function() {
   localStorage.removeItem("pseudo");
   app.style.display = "none";
